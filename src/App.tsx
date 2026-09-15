@@ -30,13 +30,15 @@ function App() {
   }
 
   return (
-    <FlashCard
-      card={currentCard}
-      isRevealed={revealed}
-      onReveal={handleReveal}
-      onSpeak={handleSpeak}
-      onNext={handleNext}
-    />
+    <main className="flashcard-shell">
+      <FlashCard
+        card={currentCard}
+        isRevealed={revealed}
+        onReveal={handleReveal}
+        onSpeak={handleSpeak}
+        onNext={handleNext}
+      />
+    </main>
   )
 }
 

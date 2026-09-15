@@ -49,7 +49,12 @@ export function speakChinese(text: string): boolean {
   }
 
   let spoken = false
+  const removeListener = () => {
+    synth.removeEventListener?.('voiceschanged', speakOnce)
+  }
+
   const speakOnce = () => {
+    removeListener()
     if (spoken) {
       return
     }
@@ -58,14 +63,9 @@ export function speakChinese(text: string): boolean {
     speakWithPreferredVoice(synth, text, synth.getVoices())
   }
 
-  const removeListener = () => {
-    synth.removeEventListener?.('voiceschanged', speakOnce)
-  }
-
   synth.addEventListener?.('voiceschanged', speakOnce)
   window.setTimeout(() => {
     if (!spoken) {
-      removeListener()
       speakOnce()
     }
   }, 250)
