@@ -62,7 +62,7 @@ export function speakChinese(text: string): boolean {
     synth.removeEventListener?.('voiceschanged', speakOnce)
   }
 
-  synth.addEventListener?.('voiceschanged', speakOnce, { once: true })
+  synth.addEventListener?.('voiceschanged', speakOnce)
   window.setTimeout(() => {
     if (!spoken) {
       removeListener()
