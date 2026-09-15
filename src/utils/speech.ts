@@ -5,7 +5,7 @@ export function pickPreferredChineseVoice(
     return undefined
   }
 
-  const normalize = (lang: string) => lang.toLowerCase().replace('_', '-')
+  const normalize = (lang: string) => lang.toLowerCase().replace(/_/g, '-')
 
   return (
     voices.find((voice) => normalize(voice.lang) === 'zh-tw') ??
