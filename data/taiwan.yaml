@@ -1,0 +1,28 @@
+cards:
+  - id: shrimp-dumplings
+    chinese: 蝦肉水餃
+    pinyin: xiāròu shuǐjiǎo
+    english: shrimp dumplings
+    category: food
+    source: Taipei market menu
+  - id: mackerel
+    chinese: 土魠魚
+    pinyin: tǔtuō yú
+    english: Spanish mackerel
+    scientific: Scomberomorus commerson
+    location: Tainan fish market
+    seen: 2026-09-05
+  - id: banyan-tree
+    chinese: 榕樹
+    pinyin: róngshù
+    english: banyan tree
+    clue: Common shade tree near temples
+    parts:
+      - 榕
+      - 樹
+  - id: thunderstorm
+    chinese: 雷陣雨
+    pinyin: léizhènyǔ
+    english: thunderstorm
+    category: weather
+    photo: IMG_1023.JPG
