@@ -17,7 +17,7 @@ export function readProgressState(): ProgressState {
     }
 
     const parsed = JSON.parse(raw) as ProgressState
-    return parsed && typeof parsed === 'object' ? parsed : {}
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {}
   } catch {
     return {}
   }
