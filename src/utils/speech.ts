@@ -19,14 +19,12 @@ export function canSpeakInBrowser(): boolean {
   return typeof window !== 'undefined' && 'speechSynthesis' in window
 }
 
-export function speakChinese(text: string): boolean {
-  if (!canSpeakInBrowser() || text.trim() === '') {
-    return false
-  }
-
-  const synth = window.speechSynthesis
+function speakWithPreferredVoice(
+  synth: SpeechSynthesis,
+  text: string,
+  voices: SpeechSynthesisVoice[],
+): void {
   const utterance = new SpeechSynthesisUtterance(text)
-  const voices = synth.getVoices()
   const selectedVoice = pickPreferredChineseVoice(voices)
 
   utterance.lang = selectedVoice?.lang ?? 'zh-TW'
@@ -36,5 +34,41 @@ export function speakChinese(text: string): boolean {
 
   synth.cancel()
   synth.speak(utterance)
+}
+
+export function speakChinese(text: string): boolean {
+  if (!canSpeakInBrowser() || text.trim() === '') {
+    return false
+  }
+
+  const synth = window.speechSynthesis
+  const voices = synth.getVoices()
+  if (voices.length > 0) {
+    speakWithPreferredVoice(synth, text, voices)
+    return true
+  }
+
+  let spoken = false
+  const speakOnce = () => {
+    if (spoken) {
+      return
+    }
+
+    spoken = true
+    speakWithPreferredVoice(synth, text, synth.getVoices())
+  }
+
+  const removeListener = () => {
+    synth.removeEventListener?.('voiceschanged', speakOnce)
+  }
+
+  synth.addEventListener?.('voiceschanged', speakOnce, { once: true })
+  window.setTimeout(() => {
+    if (!spoken) {
+      removeListener()
+      speakOnce()
+    }
+  }, 250)
+
   return true
 }
