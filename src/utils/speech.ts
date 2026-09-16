@@ -23,7 +23,7 @@ function normalizeLang(lang: string): string {
 }
 
 function hasTaiwanTag(lang: string): boolean {
-  return lang.includes('-tw')
+  return normalizeLang(lang).includes('-tw')
 }
 
 function isTraditionalChineseTaiwan(lang: string): boolean {
@@ -155,8 +155,8 @@ export async function speakChinese(text: string): Promise<SpeechResult> {
     }
 
     utterance.onend = () => {
+      window.clearTimeout(startTimeout)
       if (!started) {
-        window.clearTimeout(startTimeout)
         resolve(createResult('error', 'Speech ended before playback started.', 'ended_before_start'))
       }
     }
