@@ -27,7 +27,13 @@ function hasTaiwanTag(lang: string): boolean {
 }
 
 function isTraditionalChineseTaiwan(lang: string): boolean {
-  return hasTaiwanTag(lang) && (lang.includes('hant') || lang.startsWith('cmn-') || lang.startsWith('zh-'))
+  const normalizedLang = normalizeLang(lang)
+  return (
+    hasTaiwanTag(normalizedLang) &&
+    (normalizedLang.includes('hant') ||
+      normalizedLang.startsWith('cmn-') ||
+      normalizedLang.startsWith('zh-'))
+  )
 }
 
 export function getSpeechVoiceDiagnostics(voices: SpeechSynthesisVoice[]): SpeechVoiceDiagnostic[] {
@@ -137,33 +143,49 @@ export async function speakChinese(text: string): Promise<SpeechResult> {
 
   return new Promise((resolve) => {
     let started = false
+    let settled = false
     const utterance = new SpeechSynthesisUtterance(text)
 
     utterance.voice = selectedVoice
     utterance.lang = selectedVoice.lang
 
+    const settle = (result: SpeechResult) => {
+      if (settled) {
+        return
+      }
+
+      settled = true
+      resolve(result)
+    }
+
     const startTimeout = window.setTimeout(() => {
       if (!started) {
-        resolve(createResult('error', 'Speech did not start in time.', 'start_timeout'))
+        settle(createResult('error', 'Speech did not start in time.', 'start_timeout'))
       }
     }, 5000)
 
     utterance.onstart = () => {
+      if (settled) {
+        return
+      }
+
       started = true
       window.clearTimeout(startTimeout)
-      resolve(createResult('started', `Speaking with ${selectedVoice.name} (${selectedVoice.lang}).`))
+      settle(createResult('started', `Speaking with ${selectedVoice.name} (${selectedVoice.lang}).`))
     }
 
     utterance.onend = () => {
-      window.clearTimeout(startTimeout)
-      if (!started) {
-        resolve(createResult('error', 'Speech ended before playback started.', 'ended_before_start'))
+      if (started) {
+        return
       }
+
+      window.clearTimeout(startTimeout)
+      settle(createResult('error', 'Speech ended before playback started.', 'ended_before_start'))
     }
 
     utterance.onerror = (event) => {
       window.clearTimeout(startTimeout)
-      resolve(createResult('error', `Speech synthesis failed: ${event.error}.`, event.error))
+      settle(createResult('error', `Speech synthesis failed: ${event.error}.`, event.error))
     }
 
     synth.cancel()

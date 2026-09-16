@@ -57,18 +57,20 @@ describe('pickPreferredChineseVoice', () => {
 describe('speakChinese', () => {
   it('returns unsupported when speech synthesis is unavailable', async () => {
     const originalWindow = globalThis.window
-    Object.defineProperty(globalThis, 'window', {
-      configurable: true,
-      value: {},
-    })
+    try {
+      Object.defineProperty(globalThis, 'window', {
+        configurable: true,
+        value: {},
+      })
 
-    const result = await speakChinese('蝦肉水餃')
-    expect(result.status).toBe('unsupported')
-
-    Object.defineProperty(globalThis, 'window', {
-      configurable: true,
-      value: originalWindow,
-    })
+      const result = await speakChinese('蝦肉水餃')
+      expect(result.status).toBe('unsupported')
+    } finally {
+      Object.defineProperty(globalThis, 'window', {
+        configurable: true,
+        value: originalWindow,
+      })
+    }
   })
 
   it('returns no_matching_voice when only non-Chinese voices exist', async () => {
