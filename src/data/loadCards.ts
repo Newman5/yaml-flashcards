@@ -1,15 +1,24 @@
 import { load } from 'js-yaml'
 import taiwanYaml from '../../data/taiwan.yaml?raw'
-import type { DurableCard, FlashCard } from '../types/card'
+import type { CardPart, DurableCard, FlashCard } from '../types/card'
 
 type CardContainer = { cards?: unknown }
 
-function asStringArray(value: unknown): string[] | undefined {
+function asCardParts(value: unknown): CardPart[] | undefined {
   if (!Array.isArray(value)) {
     return undefined
   }
 
-  const parts = value.filter((item): item is string => typeof item === 'string')
+  const parts = value.filter(
+    (item): item is CardPart =>
+      !!item &&
+      typeof item === 'object' &&
+      'zh' in item &&
+      'en' in item &&
+      typeof item.zh === 'string' &&
+      typeof item.en === 'string',
+  )
+
   return parts.length > 0 ? parts : undefined
 }
 
@@ -35,7 +44,7 @@ function normalizeCard(raw: unknown, index: number): FlashCard | null {
     location: card.location,
     source: card.source,
     category: card.category,
-    parts: asStringArray(card.parts),
+    parts: asCardParts(card.parts),
   }
 }
 

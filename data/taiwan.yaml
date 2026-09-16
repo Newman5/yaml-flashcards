@@ -18,8 +18,10 @@ cards:
     english: banyan tree
     clue: Common shade tree near temples
     parts:
-      - 榕
-      - 樹
+      - zh: 榕
+        en: banyan
+      - zh: 樹
+        en: tree
   - id: thunderstorm
     chinese: 雷陣雨
     pinyin: léizhènyǔ

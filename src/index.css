@@ -73,6 +73,12 @@ body {
   gap: 0.75rem;
 }
 
+.speech-message {
+  margin: 0.2rem 0 0;
+  font-size: 0.98rem;
+  color: #b91c1c;
+}
+
 button {
   min-height: 3.2rem;
   border-radius: 0.75rem;

@@ -30,6 +30,13 @@ Each card requires:
 Optional fields are supported (not required):
 - `scientific`, `clue`, `seen`, `photo`, `location`, `source`, `parts`, `category`
 
+`parts` is structured data when present:
+```yaml
+parts:
+  - zh: 蝦
+    en: shrimp
+```
+
 ## Local development
 ```bash
 npm install
@@ -51,6 +58,12 @@ npm run build
 - The app prefers a `zh-TW` voice when installed; otherwise falls back to another `zh-*` voice.
 - Some browsers only populate voices after user interaction or platform voice installation.
 - No external TTS API is used in this vertical slice.
+
+### Silent-speech follow-up note
+The original silent behavior was likely caused by `speechSynthesis.getVoices()` being empty when the first Speak tap occurred, plus optimistic success handling that treated queued speech as successful before playback events fired.  
+The speech utility now waits more robustly for voice availability, selects Chinese voices in a stricter order (`zh-TW` → `cmn-TW` → Taiwan Traditional Chinese matches → other `zh-*`), and returns explicit outcomes from `onstart`/`onend`/`onerror` so the UI can show actionable failure feedback.
+
+For debugging available voices during development, call `logSpeechVoiceDiagnostics(window.speechSynthesis.getVoices())` from the browser console.
 
 ## Open-source lineage
 Concise implementation lineage notes are in `docs/open-source-notes.md`.

@@ -3,12 +3,13 @@ import type { FlashCard as FlashCardType } from '../types/card'
 type FlashCardProps = {
   card: FlashCardType
   isRevealed: boolean
+  speechMessage?: string | null
   onReveal: () => void
   onSpeak: () => void
   onNext: () => void
 }
 
-export function FlashCard({ card, isRevealed, onReveal, onSpeak, onNext }: FlashCardProps) {
+export function FlashCard({ card, isRevealed, speechMessage, onReveal, onSpeak, onNext }: FlashCardProps) {
   return (
     <article className="flashcard" aria-live="polite">
       <p className="label">Chinese</p>
@@ -30,6 +31,11 @@ export function FlashCard({ card, isRevealed, onReveal, onSpeak, onNext }: Flash
               Next
             </button>
           </div>
+          {speechMessage ? (
+            <p className="speech-message" role="status">
+              {speechMessage}
+            </p>
+          ) : null}
         </div>
       )}
     </article>

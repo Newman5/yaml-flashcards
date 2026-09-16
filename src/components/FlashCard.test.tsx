@@ -33,4 +33,19 @@ describe('FlashCard', () => {
     expect(screen.getByRole('button', { name: 'Speak' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Next' })).toBeInTheDocument()
   })
+
+  it('shows speech feedback message when provided', () => {
+    render(
+      <FlashCard
+        card={card}
+        isRevealed
+        speechMessage="No Chinese speech voice is available on this device."
+        onReveal={vi.fn()}
+        onSpeak={vi.fn()}
+        onNext={vi.fn()}
+      />,
+    )
+
+    expect(screen.getByText('No Chinese speech voice is available on this device.')).toBeInTheDocument()
+  })
 })

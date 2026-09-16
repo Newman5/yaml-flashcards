@@ -1,3 +1,8 @@
+export type CardPart = {
+  zh: string
+  en: string
+}
+
 export type DurableCard = {
   id?: string
   chinese: string
@@ -9,7 +14,7 @@ export type DurableCard = {
   photo?: string
   location?: string
   source?: string
-  parts?: string[]
+  parts?: CardPart[]
   category?: string
 }
 

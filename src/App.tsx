@@ -8,6 +8,7 @@ function App() {
   const cards = useMemo(() => loadTaiwanCards(), [])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [revealed, setRevealed] = useState(false)
+  const [speechMessage, setSpeechMessage] = useState<string | null>(null)
 
   if (cards.length === 0) {
     return <main className="flashcard-shell">No cards found in data/taiwan.yaml.</main>
@@ -17,16 +18,24 @@ function App() {
 
   const handleReveal = () => {
     setRevealed(true)
+    setSpeechMessage(null)
   }
 
-  const handleSpeak = () => {
-    speakChinese(currentCard.chinese)
+  const handleSpeak = async () => {
+    const result = await speakChinese(currentCard.chinese)
+    if (result.status === 'started') {
+      setSpeechMessage(null)
+      return
+    }
+
+    setSpeechMessage(result.message)
   }
 
   const handleNext = () => {
     markCardSeen(currentCard)
     setCurrentIndex((previous) => (previous + 1) % cards.length)
     setRevealed(false)
+    setSpeechMessage(null)
   }
 
   return (
@@ -34,6 +43,7 @@ function App() {
       <FlashCard
         card={currentCard}
         isRevealed={revealed}
+        speechMessage={speechMessage}
         onReveal={handleReveal}
         onSpeak={handleSpeak}
         onNext={handleNext}
