@@ -12,10 +12,15 @@ export type SpeechResultStatus =
   | 'no_matching_voice'
   | 'error'
 
+type InternalSpeechError =
+  | SpeechSynthesisErrorCode
+  | 'start_timeout'
+  | 'ended_before_start'
+
 export type SpeechResult = {
   status: SpeechResultStatus
   message: string
-  error?: string
+  error?: InternalSpeechError
 }
 
 function normalizeLang(lang: string): string {
@@ -69,7 +74,11 @@ export function canSpeakInBrowser(): boolean {
   return typeof window !== 'undefined' && 'speechSynthesis' in window
 }
 
-function createResult(status: SpeechResultStatus, message: string, error?: string): SpeechResult {
+function createResult(
+  status: SpeechResultStatus,
+  message: string,
+  error?: InternalSpeechError,
+): SpeechResult {
   return { status, message, error }
 }
 
@@ -175,7 +184,7 @@ export async function speakChinese(text: string): Promise<SpeechResult> {
     }
 
     utterance.onend = () => {
-      if (started) {
+      if (started || settled) {
         return
       }
 
