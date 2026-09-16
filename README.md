@@ -59,6 +59,8 @@ npm run build
 - Some browsers only populate voices after user interaction or platform voice installation.
 - No external TTS API is used in this vertical slice.
 
+Browser-native speech depends on voices exposed through the browser. On Windows testing, Chrome provided a Chinese voice while Firefox and Brave did not; behavior may vary by OS/browser.
+
 ### Silent-speech follow-up note
 The original silent behavior was likely caused by `speechSynthesis.getVoices()` being empty when the first Speak tap occurred, plus optimistic success handling that treated queued speech as successful before playback events fired.  
 The speech utility now waits more robustly for voice availability, selects Chinese voices in a stricter order (`zh-TW` → `cmn-TW` → Taiwan Traditional Chinese matches → other `zh-*`), and returns explicit outcomes from `onstart`/`onend`/`onerror` so the UI can show actionable failure feedback.
