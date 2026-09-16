@@ -196,6 +196,7 @@ export async function speakChinese(text: string): Promise<SpeechResult> {
     }
 
     utterance.onend = () => {
+      window.clearTimeout(startTimeout)
       if (settled) {
         return
       }
