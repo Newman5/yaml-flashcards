@@ -69,3 +69,6 @@ For debugging available voices during development, call `logSpeechVoiceDiagnosti
 
 ## Open-source lineage
 Concise implementation lineage notes are in `docs/open-source-notes.md`.
+
+## GitHub Pages
+The app is deployed at: **https://newman5.github.io/yaml-flashcards/**
