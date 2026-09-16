@@ -149,28 +149,30 @@ describe('speakChinese', () => {
     installUtteranceMock()
     vi.useFakeTimers()
 
-    const listeners: Record<string, (() => void) | undefined> = {}
-    const synthMock = {
-      getVoices: () => [],
-      speak: vi.fn(),
-      cancel: vi.fn(),
-      addEventListener: vi.fn((event: string, callback: () => void) => {
-        listeners[event] = callback
-      }),
-      removeEventListener: vi.fn(),
-    } as unknown as SpeechSynthesis
+    try {
+      const listeners: Record<string, (() => void) | undefined> = {}
+      const synthMock = {
+        getVoices: () => [],
+        speak: vi.fn(),
+        cancel: vi.fn(),
+        addEventListener: vi.fn((event: string, callback: () => void) => {
+          listeners[event] = callback
+        }),
+        removeEventListener: vi.fn(),
+      } as unknown as SpeechSynthesis
 
-    Object.defineProperty(window, 'speechSynthesis', {
-      configurable: true,
-      value: synthMock,
-    })
+      Object.defineProperty(window, 'speechSynthesis', {
+        configurable: true,
+        value: synthMock,
+      })
 
-    const resultPromise = speakChinese('蝦肉水餃')
-    await vi.advanceTimersByTimeAsync(5100)
+      const resultPromise = speakChinese('蝦肉水餃')
+      await vi.advanceTimersByTimeAsync(5100)
 
-    const result = await resultPromise
-    expect(result.status).toBe('voices_not_loaded')
-
-    vi.useRealTimers()
+      const result = await resultPromise
+      expect(result.status).toBe('voices_not_loaded')
+    } finally {
+      vi.useRealTimers()
+    }
   })
 })

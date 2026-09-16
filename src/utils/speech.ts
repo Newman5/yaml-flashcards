@@ -13,9 +13,21 @@ export type SpeechResultStatus =
   | 'error'
 
 type InternalSpeechError =
-  | SpeechSynthesisErrorCode
+  | 'canceled'
+  | 'interrupted'
+  | 'audio-busy'
+  | 'audio-hardware'
+  | 'network'
+  | 'synthesis-unavailable'
+  | 'synthesis-failed'
+  | 'language-unavailable'
+  | 'voice-unavailable'
+  | 'text-too-long'
+  | 'invalid-argument'
+  | 'not-allowed'
   | 'start_timeout'
   | 'ended_before_start'
+  | 'empty_text'
 
 export type SpeechResult = {
   status: SpeechResultStatus
@@ -131,7 +143,7 @@ export async function speakChinese(text: string): Promise<SpeechResult> {
   }
 
   if (text.trim() === '') {
-    return createResult('error', 'Cannot speak empty text.')
+    return createResult('error', 'Cannot speak empty text.', 'empty_text')
   }
 
   const synth = window.speechSynthesis
@@ -184,7 +196,11 @@ export async function speakChinese(text: string): Promise<SpeechResult> {
     }
 
     utterance.onend = () => {
-      if (started || settled) {
+      if (settled) {
+        return
+      }
+
+      if (started) {
         return
       }
 
