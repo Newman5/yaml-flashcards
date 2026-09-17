@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { BrowsePage } from './components/BrowsePage'
 import { FlashCard } from './components/FlashCard'
 import { loadTaiwanCards } from './data/loadCards'
 import { markCardSeen } from './storage/progress'
@@ -9,9 +10,14 @@ function App() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [revealed, setRevealed] = useState(false)
   const [speechMessage, setSpeechMessage] = useState<string | null>(null)
+  const [view, setView] = useState<'flashcard' | 'browse'>('flashcard')
 
   if (cards.length === 0) {
     return <main className="flashcard-shell">No cards found in data/taiwan.yaml.</main>
+  }
+
+  if (view === 'browse') {
+    return <BrowsePage onBack={() => setView('flashcard')} />
   }
 
   const currentCard = cards[currentIndex]
@@ -40,14 +46,21 @@ function App() {
 
   return (
     <main className="flashcard-shell">
-      <FlashCard
-        card={currentCard}
-        isRevealed={revealed}
-        speechMessage={speechMessage}
-        onReveal={handleReveal}
-        onSpeak={handleSpeak}
-        onNext={handleNext}
-      />
+      <div className="flashcard-view">
+        <div className="nav-bar">
+          <button className="secondary-button nav-browse-btn" onClick={() => setView('browse')}>
+            Browse
+          </button>
+        </div>
+        <FlashCard
+          card={currentCard}
+          isRevealed={revealed}
+          speechMessage={speechMessage}
+          onReveal={handleReveal}
+          onSpeak={handleSpeak}
+          onNext={handleNext}
+        />
+      </div>
     </main>
   )
 }
