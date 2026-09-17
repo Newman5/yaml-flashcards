@@ -28,3 +28,255 @@ cards:
     english: thunderstorm
     category: weather
     photo: IMG_1023.JPG
+  - id: beef
+    chinese: 牛
+    pinyin: niú
+    english: beef / cow
+    category: food
+  - id: pork
+    chinese: 豬
+    pinyin: zhū
+    english: pork / pig
+    category: food
+  - id: chicken
+    chinese: 雞
+    pinyin: jī
+    english: chicken
+    category: food
+  - id: fish
+    chinese: 魚
+    pinyin: yú
+    english: fish
+    category: food
+  - id: shrimp
+    chinese: 蝦
+    pinyin: xiā
+    english: shrimp
+    category: food
+  - id: meat
+    chinese: 肉
+    pinyin: ròu
+    english: meat
+    category: food
+  - id: noodles
+    chinese: 麵
+    pinyin: miàn
+    english: noodles
+    category: food
+  - id: rice-meal
+    chinese: 飯
+    pinyin: fàn
+    english: rice / meal
+    category: food
+  - id: soup
+    chinese: 湯
+    pinyin: tāng
+    english: soup
+    category: food
+  - id: boiled-dumplings
+    chinese: 水餃
+    pinyin: shuǐjiǎo
+    english: boiled dumplings
+    category: food
+  - id: potstickers
+    chinese: 鍋貼
+    pinyin: guōtiē
+    english: potstickers
+    category: food
+  - id: steamed-bun
+    chinese: 包子
+    pinyin: bāozi
+    english: steamed bun
+    category: food
+  - id: wonton
+    chinese: 雲吞
+    pinyin: yúntūn
+    english: wonton
+    category: food
+  - id: spicy
+    chinese: 辣
+    pinyin: là
+    english: spicy
+    category: food
+  - id: boneless
+    chinese: 無骨
+    pinyin: wúgǔ
+    english: boneless
+    category: food
+  - id: ice-iced
+    chinese: 冰
+    pinyin: bīng
+    english: ice / iced
+    category: food
+  - id: hot
+    chinese: 熱
+    pinyin: rè
+    english: hot
+    category: food
+  - id: tea
+    chinese: 茶
+    pinyin: chá
+    english: tea
+    category: food
+  - id: coffee
+    chinese: 咖啡
+    pinyin: kāfēi
+    english: coffee
+    category: food
+  - id: how-much-many
+    chinese: 多少
+    pinyin: duōshǎo
+    english: how much / how many
+    category: shopping
+  - id: money
+    chinese: 錢
+    pinyin: qián
+    english: money
+    category: shopping
+  - id: how-much-cost
+    chinese: 多少錢
+    pinyin: duōshǎo qián
+    english: how much does it cost?
+    category: shopping
+  - id: i-want
+    chinese: 我要
+    pinyin: wǒ yào
+    english: I want / I'll have
+    category: phrase
+  - id: this-one
+    chinese: 這個
+    pinyin: zhège
+    english: this one
+    category: phrase
+  - id: dont-want
+    chinese: 不要
+    pinyin: bú yào
+    english: don't want / no
+    category: phrase
+  - id: bag
+    chinese: 袋子
+    pinyin: dàizi
+    english: bag
+    category: shopping
+  - id: receipt-invoice
+    chinese: 發票
+    pinyin: fāpiào
+    english: receipt / uniform invoice
+    category: shopping
+  - id: station
+    chinese: 車站
+    pinyin: chēzhàn
+    english: station
+    category: transportation
+  - id: train
+    chinese: 火車
+    pinyin: huǒchē
+    english: train
+    category: transportation
+  - id: high-speed-rail
+    chinese: 高鐵
+    pinyin: gāotiě
+    english: high-speed rail
+    category: transportation
+  - id: mrt
+    chinese: 捷運
+    pinyin: jiéyùn
+    english: MRT
+    category: transportation
+  - id: bus
+    chinese: 公車
+    pinyin: gōngchē
+    english: bus
+    category: transportation
+  - id: taxi
+    chinese: 計程車
+    pinyin: jìchéngchē
+    english: taxi
+    category: transportation
+  - id: scooter
+    chinese: 機車
+    pinyin: jīchē
+    english: scooter / motorcycle
+    category: transportation
+  - id: entrance
+    chinese: 入口
+    pinyin: rùkǒu
+    english: entrance
+    category: signs
+  - id: exit
+    chinese: 出口
+    pinyin: chūkǒu
+    english: exit
+    category: signs
+  - id: left
+    chinese: 左
+    pinyin: zuǒ
+    english: left
+    category: directions
+  - id: right
+    chinese: 右
+    pinyin: yòu
+    english: right
+    category: directions
+  - id: open
+    chinese: 開
+    pinyin: kāi
+    english: open / to open
+    category: signs
+  - id: close
+    chinese: 關
+    pinyin: guān
+    english: close / shut
+    category: signs
+  - id: toilet
+    chinese: 廁所
+    pinyin: cèsuǒ
+    english: toilet
+    category: signs
+  - id: male
+    chinese: 男
+    pinyin: nán
+    english: male
+    category: signs
+  - id: female
+    chinese: 女
+    pinyin: nǚ
+    english: female
+    category: signs
+  - id: be-careful
+    chinese: 小心
+    pinyin: xiǎoxīn
+    english: be careful
+    category: signs
+  - id: taiwan
+    chinese: 台灣
+    pinyin: Táiwān
+    english: Taiwan
+    category: place
+  - id: hsinchu
+    chinese: 新竹
+    pinyin: Xīnzhú
+    english: Hsinchu
+    category: place
+  - id: four-seas-roaming-dragon
+    chinese: 四海遊龍
+    pinyin: Sìhǎi Yóulóng
+    english: Four Seas Roaming Dragon
+    category: place
+  - id: taiwan-tree-fern
+    chinese: 筆筒樹
+    pinyin: bǐtǒng shù
+    english: Taiwan tree fern
+    category: nature
+    scientific: Sphaeropteris lepifera
+    clue: A tree that looks like a giant fern
+  - id: mountain
+    chinese: 山
+    pinyin: shān
+    english: mountain
+    category: nature
+  - id: sea
+    chinese: 海
+    pinyin: hǎi
+    english: sea
+    category: nature
