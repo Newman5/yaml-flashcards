@@ -9,6 +9,8 @@ type Props = {
 export function BrowsePage({ onBack }: Props) {
   const cards = useMemo(() => loadTaiwanCards(), [])
   const [speechMessage, setSpeechMessage] = useState<string | null>(null)
+  const [showPinyin, setShowPinyin] = useState(true)
+  const [showEnglish, setShowEnglish] = useState(false)
 
   const handleTap = async (chinese: string) => {
     const result = await speakChinese(chinese)
@@ -27,6 +29,24 @@ export function BrowsePage({ onBack }: Props) {
         </button>
         <h1 className="browse-title">Characters</h1>
       </div>
+      <div className="browse-controls">
+        <label className="browse-control-label">
+          <input
+            type="checkbox"
+            checked={showPinyin}
+            onChange={(e) => setShowPinyin(e.target.checked)}
+          />
+          Show pinyin
+        </label>
+        <label className="browse-control-label">
+          <input
+            type="checkbox"
+            checked={showEnglish}
+            onChange={(e) => setShowEnglish(e.target.checked)}
+          />
+          Show English
+        </label>
+      </div>
       {speechMessage && <p className="speech-message browse-speech-message">{speechMessage}</p>}
       <div className="browse-grid">
         {cards.map((card) => (
@@ -37,7 +57,8 @@ export function BrowsePage({ onBack }: Props) {
             aria-label={`Speak ${card.chinese} (${card.pinyin})`}
           >
             <span className="browse-chinese">{card.chinese}</span>
-            <span className="browse-pinyin">{card.pinyin}</span>
+            {showPinyin && <span className="browse-pinyin">{card.pinyin}</span>}
+            {showEnglish && <span className="browse-english">{card.english}</span>}
           </button>
         ))}
       </div>
