@@ -54,7 +54,7 @@ export function BrowsePage({ onBack }: Props) {
             key={card.id}
             className="browse-card"
             onClick={() => handleTap(card.chinese)}
-            aria-label={`Speak ${card.chinese} (${card.pinyin})`}
+            aria-label={`Speak ${card.chinese} (${card.pinyin}) – ${card.english}`}
           >
             <span className="browse-chinese">{card.chinese}</span>
             {showPinyin && <span className="browse-pinyin">{card.pinyin}</span>}
