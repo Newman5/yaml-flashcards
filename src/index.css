@@ -204,3 +204,18 @@ button {
   font-size: 0.75rem;
   color: #374151;
 }
+
+.browse-category-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.browse-category-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e3a5f;
+  margin: 0;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
