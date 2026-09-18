@@ -22,11 +22,12 @@ cards:
         en: banyan
       - zh: 樹
         en: tree
+    category: nature
   - id: thunderstorm
     chinese: 雷陣雨
     pinyin: léizhènyǔ
     english: thunderstorm
-    category: weather
+    category: nature
     photo: IMG_1023.JPG
   - id: beef
     chinese: 牛
@@ -280,3 +281,67 @@ cards:
     pinyin: hǎi
     english: sea
     category: nature
+  - id: soy
+    chinese: 黃豆
+    pinyin: huángdòu
+    english: soybean / soy
+    category: food
+  - id: soy-milk
+    chinese: 豆漿
+    pinyin: dòujiāng
+    english: soy milk
+    category: food
+
+  - id: rice-milk
+    chinese: 米漿
+    pinyin: mǐjiāng
+    english: rice milk / rice-peanut drink
+    category: food
+
+  - id: fried-dough-stick
+    chinese: 油條
+    pinyin: yóutiáo
+    english: fried dough stick / youtiao
+    category: food
+
+  - id: egg-pancake
+    chinese: 蛋餅
+    pinyin: dànbǐng
+    english: egg pancake
+    category: food
+
+  - id: radish-cake
+    chinese: 蘿蔔糕
+    pinyin: luóbogāo
+    english: radish cake
+    category: food
+
+  - id: steamed-bun-mantou
+    chinese: 饅頭
+    pinyin: mántou
+    english: steamed bun / mantou
+    category: food
+
+  - id: bicycling
+    chinese: 騎自行車
+    pinyin: qí zìxíngchē
+    english: bicycling / ride a bicycle
+    category: activity
+
+  - id: swimming
+    chinese: 游泳
+    pinyin: yóuyǒng
+    english: swimming
+    category: activity
+
+  - id: hot-tub
+    chinese: 熱水池
+    pinyin: rèshuǐchí
+    english: hot tub / hot-water pool
+    category: activity
+
+  - id: hydrotherapy
+    chinese: 水療
+    pinyin: shuǐliáo
+    english: hydrotherapy / spa
+    category: activity
