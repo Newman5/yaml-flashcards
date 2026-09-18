@@ -345,3 +345,20 @@ cards:
     pinyin: shuǐliáo
     english: hydrotherapy / spa
     category: activity
+  - id: plain-rice
+    chinese: 白飯
+    pinyin: báifàn
+    english: plain rice
+    category: food
+    practice:
+      - read
+      - speak
+
+  - id: night-market
+    chinese: 夜市
+    pinyin: yèshì
+    english: night market
+    category: place
+    practice:
+      - read
+      - speak
