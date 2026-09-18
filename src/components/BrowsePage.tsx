@@ -7,6 +7,27 @@ type Props = {
   onBack: () => void
 }
 
+type BrowseCardProps = {
+  card: FlashCard
+  showPinyin: boolean
+  showEnglish: boolean
+  onTap: (chinese: string) => void
+}
+
+function BrowseCard({ card, showPinyin, showEnglish, onTap }: BrowseCardProps) {
+  return (
+    <button
+      className="browse-card"
+      onClick={() => onTap(card.chinese)}
+      aria-label={`Speak ${card.chinese} (${card.pinyin}) – ${card.english}`}
+    >
+      <span className="browse-chinese">{card.chinese}</span>
+      {showPinyin && <span className="browse-pinyin">{card.pinyin}</span>}
+      {showEnglish && <span className="browse-english">{card.english}</span>}
+    </button>
+  )
+}
+
 export function BrowsePage({ onBack }: Props) {
   const cards = useMemo(() => loadTaiwanCards(), [])
   const [speechMessage, setSpeechMessage] = useState<string | null>(null)
@@ -82,16 +103,13 @@ export function BrowsePage({ onBack }: Props) {
             <h2 className="browse-category-heading">{category}</h2>
             <div className="browse-grid">
               {groupCards.map((card) => (
-                <button
+                <BrowseCard
                   key={card.id}
-                  className="browse-card"
-                  onClick={() => handleTap(card.chinese)}
-                  aria-label={`Speak ${card.chinese} (${card.pinyin}) – ${card.english}`}
-                >
-                  <span className="browse-chinese">{card.chinese}</span>
-                  {showPinyin && <span className="browse-pinyin">{card.pinyin}</span>}
-                  {showEnglish && <span className="browse-english">{card.english}</span>}
-                </button>
+                  card={card}
+                  showPinyin={showPinyin}
+                  showEnglish={showEnglish}
+                  onTap={handleTap}
+                />
               ))}
             </div>
           </section>
@@ -99,16 +117,13 @@ export function BrowsePage({ onBack }: Props) {
       ) : (
         <div className="browse-grid">
           {cards.map((card) => (
-            <button
+            <BrowseCard
               key={card.id}
-              className="browse-card"
-              onClick={() => handleTap(card.chinese)}
-              aria-label={`Speak ${card.chinese} (${card.pinyin}) – ${card.english}`}
-            >
-              <span className="browse-chinese">{card.chinese}</span>
-              {showPinyin && <span className="browse-pinyin">{card.pinyin}</span>}
-              {showEnglish && <span className="browse-english">{card.english}</span>}
-            </button>
+              card={card}
+              showPinyin={showPinyin}
+              showEnglish={showEnglish}
+              onTap={handleTap}
+            />
           ))}
         </div>
       )}
