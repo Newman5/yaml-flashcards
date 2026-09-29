@@ -362,3 +362,113 @@ cards:
     practice:
       - read
       - speak
+
+  - id: foot-massage
+    chinese: 腳底按摩
+    pinyin: jiǎodǐ ànmó
+    english: foot massage
+    category: 2026 Trip
+
+  - id: reflexology
+    chinese: 反射療法
+    pinyin: fǎnshè liáofǎ
+    english: reflexology
+    category: 2026 Trip
+
+  - id: graditude
+    chinese: 感激
+    pinyin: gǎn jī
+    english: graditude
+    category: 2026 Trip
+
+  - id: blessings
+    chinese: 祝福
+    pinyin: zhù fú
+    english: blessings
+    category: 2026 Trip
+
+  - id: welcome
+    chinese: 歡迎
+    pinyin: huān yíng
+    english: welcome
+    category: 2026 Trip
+
+  - id: butterfly
+    chinese: 蝴蝶
+    pinyin: hú dié
+    english: butterfly
+    category: nature
+
+  - id: sunrise
+    chinese: 日出
+    pinyin: rì chū
+    english: sunrise
+    category: nature
+
+  - id: sunset
+    chinese: 日落
+    pinyin: rì luò
+    english: sunset
+    category: nature
+
+  - id: waterfall
+    chinese: 瀑布
+    pinyin: pù bù
+    english: waterfall
+    category: nature
+
+  - id: straight
+    chinese: 直走
+    pinyin: zhí zǒu
+    english: straight
+    category: directions
+
+  - id: motorcycle
+    chinese: 摩托車
+    pinyin: mó tuō jū
+    english: motorcycle
+
+  - id: bike
+    chinese: 腳踏車
+    pinyin: jiǎo tà jū
+    english: bike
+
+  - id: breakfast
+    chinese: 早餐
+    pinyin: zǎo cān
+    english: breakfast
+    category: food
+
+  - id: lunch
+    chinese: 午餐
+    pinyin: wǔ cān
+    english: lunch
+    category: food
+
+  - id: dinner
+    chinese: 晚餐
+    pinyin: wǎn cān
+    english: dinner
+    category: food
+
+  - id: now
+    chinese: 現在
+    pinyin: xiàn zài
+    english: now
+
+  - id: later
+    chinese: 稍後
+    pinyin: shāo hòu
+    english: later
+
+  - id: fishcake
+    chinese: 魚餅
+    pinyin: yú bǐng
+    english: fishcake
+    category: food
+
+  - id: alien
+    chinese: 外星人
+    pinyin: wài xīng rén
+    english: alien
+    category: 2026 Trip
