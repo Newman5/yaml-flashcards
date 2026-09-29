@@ -472,3 +472,108 @@ cards:
     pinyin: wài xīng rén
     english: alien
     category: 2026 Trip
+
+  - id: taiwanese-popcorn-chicken
+    chinese: 鹽酥雞
+    pinyin: yán sū jī
+    english: Taiwanese popcorn chicken
+    category: nightmarket
+    practice:
+      - read
+
+  - id: sausage-in-sticky-rice-sausage
+    chinese: 大腸包小腸
+    pinyin: dàcháng bāo xiǎocháng
+    english: sausage in sticky rice sausage
+    category: nightmarket
+    practice:
+      - read
+
+  - id: scallion-pancake
+    chinese: 蔥油餅
+    pinyin: cōngyóu bǐng
+    english: scallion pancake
+    category: nightmarket
+    practice:
+      - read
+
+  - id: sweet-potato-balls
+    chinese: 地瓜球
+    pinyin: dìguā qiú
+    english: sweet potato balls
+    category: nightmarket
+    practice:
+      - read
+
+  - id: grilled-taiwanese-sausage
+    chinese: 烤香腸
+    pinyin: kǎo xiāngcháng
+    english: grilled Taiwanese sausage
+    category: nightmarket
+    practice:
+      - read
+
+  - id: braised-foods
+    chinese: 滷味
+    pinyin: lǔwèi
+    english: braised foods
+    category: nightmarket
+    practice:
+      - read
+
+  - id: egg-cakes
+    chinese: 雞蛋糕
+    pinyin: jīdàn gāo
+    english: egg cakes
+    category: nightmarket
+    practice:
+      - read
+
+  - id: steamed-rice-noodle-roll
+    chinese: 腸粉
+    pinyin: chángfěn
+    english: steamed rice noodle roll
+    category: nightmarket
+    practice:
+      - read
+      - speak
+
+  - id: gua-bao
+    chinese: 刈包
+    pinyin: guàbāo
+    english: gua bao
+    category: nightmarket
+    practice:
+      - read
+
+  - id: pineapple-bun
+    chinese: 菠蘿麵包
+    pinyin: bōluó miànbāo
+    english: pineapple bun
+    category: nightmarket
+    practice:
+      - read
+
+  - id: rou-jia-mo-bun
+    chinese: 肉夾饃
+    pinyin: ròujiāmó
+    english: rou jia mo bun
+    category: nightmarket
+    practice:
+      - read
+
+  - id: chicken-steak
+    chinese: 雞排
+    pinyin: jīpái
+    english: chicken steak
+    category: nightmarket
+    practice:
+      - read
+
+  - id: pepper-bun
+    chinese: 胡椒餅
+    pinyin: hújiāo bǐng
+    english: pepper bun
+    category: nightmarket
+    practice:
+      - read

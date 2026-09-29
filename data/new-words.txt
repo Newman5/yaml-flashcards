@@ -1,21 +1,15 @@
 # english | chinese | pinyin | category | practice
 # night market | 夜市 | yèshì | place | read,speak
-foot massage | 腳底按摩 | jiǎodǐ ànmó | 2026 Trip
-reflexology | 反射療法 | fǎnshè liáofǎ | 2026 Trip
-graditude | 感激 | gǎn jī | 2026 Trip
-blessings | 祝福 | zhù fú | 2026 Trip
-welcome | 歡迎 | huān yíng | 2026 Trip
-butterfly | 蝴蝶 | hú dié | nature
-sunrise | 日出 | rì chū | nature
-sunset | 日落 | rì luò | nature
-waterfall | 瀑布 | pù bù | nature
-straight | 直走 | zhí zǒu | directions
-motorcycle | 摩托車 | mó tuō jū
-bike | 腳踏車 | jiǎo tà jū
-breakfast | 早餐 | zǎo cān | food
-lunch | 午餐 | wǔ cān  | food
-dinner | 晚餐 | wǎn cān  | food
-now | 現在 | xiàn zài
-later | 稍後 | shāo hòu
-fishcake | 魚餅 | yú bǐng | food
-alien | 外星人 | wài xīng rén | 2026 Trip
+Taiwanese popcorn chicken | 鹽酥雞 | yán sū jī | nightmarket | read
+sausage in sticky rice sausage | 大腸包小腸 | dàcháng bāo xiǎocháng | nightmarket | read
+scallion pancake | 蔥油餅 | cōngyóu bǐng | nightmarket | read
+sweet potato balls | 地瓜球 | dìguā qiú | nightmarket | read
+grilled Taiwanese sausage | 烤香腸 | kǎo xiāngcháng | nightmarket | read
+braised foods | 滷味 | lǔwèi | nightmarket | read
+egg cakes | 雞蛋糕 | jīdàn gāo | nightmarket | read
+steamed rice noodle roll | 腸粉 | chángfěn | nightmarket |read, speak
+gua bao | 刈包|  guàbāo | nightmarket | read
+pineapple bun| 菠蘿麵包 | bōluó miànbāo | nightmarket | read
+rou jia mo bun |肉夾饃 | ròujiāmó | nightmarket | read
+chicken steak | 雞排 | jīpái | nightmarket | read
+pepper bun | 胡椒餅 | hújiāo bǐng | nightmarket | read
