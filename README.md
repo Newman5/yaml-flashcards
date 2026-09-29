@@ -53,6 +53,29 @@ Build production assets:
 npm run build
 ```
 
+## English-only capture workflow
+
+This workflow keeps `data/taiwan.yaml` as the durable source of truth and uses a reviewable intermediate text file.
+
+1. Write English words/phrases in a UTF-8 text file (one entry per line).
+2. Run `npm run translate-words -- <input-file.txt>`.
+3. Review generated Chinese and pinyin in `output/generated-words.txt`.
+4. Correct anything necessary in the generated file.
+5. Run `npm run add-words -- output/generated-words.txt`.
+6. Commit `data/taiwan.yaml` normally.
+
+Input parsing rules for `translate-words`:
+- Ignore blank lines.
+- Ignore lines beginning with `#`.
+- Reject duplicate English lines (case-insensitive).
+
+`translate-words` uses OpenAI and requires `OPENAI_API_KEY` in your developer environment.  
+Never hard-code or commit API keys.
+
+Diagnostic scripts:
+- `npm run test-openai-translation` (real OpenAI smoke test with fixed terms)
+- `npm run test-pinyin` (local pinyin conversion check, no OpenAI call)
+
 ## Speech support limitations
 - Speech depends on browser/device voice availability.
 - The app prefers a `zh-TW` voice when installed; otherwise falls back to another `zh-*` voice.

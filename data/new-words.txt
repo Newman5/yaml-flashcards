@@ -1,4 +1,21 @@
 # english | chinese | pinyin | category | practice
 # night market | 夜市 | yèshì | place | read,speak
-foot massage | 腳底按摩 | jiǎodǐ ànmó
-reflexology | 反射療法 | fǎnshè liáofǎ
+foot massage | 腳底按摩 | jiǎodǐ ànmó | 2026 Trip
+reflexology | 反射療法 | fǎnshè liáofǎ | 2026 Trip
+graditude | 感激 | gǎn jī | 2026 Trip
+blessings | 祝福 | zhù fú | 2026 Trip
+welcome | 歡迎 | huān yíng | 2026 Trip
+butterfly | 蝴蝶 | hú dié | nature
+sunrise | 日出 | rì chū | nature
+sunset | 日落 | rì luò | nature
+waterfall | 瀑布 | pù bù | nature
+straight | 直走 | zhí zǒu | directions
+motorcycle | 摩托車 | mó tuō jū
+bike | 腳踏車 | jiǎo tà jū
+breakfast | 早餐 | zǎo cān | food
+lunch | 午餐 | wǔ cān  | food
+dinner | 晚餐 | wǎn cān  | food
+now | 現在 | xiàn zài
+later | 稍後 | shāo hòu
+fishcake | 魚餅 | yú bǐng | food
+alien | 外星人 | wài xīng rén | 2026 Trip

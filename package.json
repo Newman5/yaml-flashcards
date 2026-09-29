@@ -9,10 +9,16 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "translate-words": "node scripts/translate-words.js",
+    "add-words": "node scripts/add-words.js",
+    "test-openai-translation": "node scripts/test-openai-translation.js",
+    "test-pinyin": "node scripts/test-pinyin.js"
   },
   "dependencies": {
     "js-yaml": "^4.3.2",
+    "openai": "^7.23.0",
+    "pinyin-pro": "^3.29.4",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
