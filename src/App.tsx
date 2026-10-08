@@ -53,10 +53,14 @@ function App() {
     <main className="flashcard-shell">
       <div className="flashcard-view">
         <div className="nav-bar">
-          <button className="secondary-button nav-browse-btn" onClick={() => setView('matching')}>
+          <button
+            className="secondary-button nav-browse-btn"
+            onClick={() => setView('matching')}
+            type="button"
+          >
             Matching Game
           </button>
-          <button className="secondary-button nav-browse-btn" onClick={() => setView('browse')}>
+          <button className="secondary-button nav-browse-btn" onClick={() => setView('browse')} type="button">
             Browse
           </button>
         </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import type { FlashCard } from '../types/card'
 import {
   createMatchingRound,
@@ -25,15 +25,11 @@ export function MatchingGame({ cards, onBack }: Props) {
   const [feedback, setFeedback] = useState<'correct' | 'incorrect' | null>(null)
   const [isLocked, setIsLocked] = useState(false)
 
-  useEffect(() => {
-    if (!selectedChineseId || !selectedTargetId || isLocked || round.pairs.length === 0) {
-      return
-    }
-
+  const resolveAttempt = (chineseId: string, targetId: string) => {
     const result = evaluateMatchAttempt(
       matchedIds,
-      selectedChineseId,
-      selectedTargetId,
+      chineseId,
+      targetId,
       round.pairs.length,
     )
 
@@ -44,15 +40,33 @@ export function MatchingGame({ cards, onBack }: Props) {
       setMatchedIds(result.matchedIds)
     }
 
-    const timer = window.setTimeout(() => {
+    window.setTimeout(() => {
       setSelectedChineseId(null)
       setSelectedTargetId(null)
       setFeedback(null)
       setIsLocked(false)
     }, 700)
+  }
 
-    return () => window.clearTimeout(timer)
-  }, [isLocked, matchedIds, round.pairs.length, selectedChineseId, selectedTargetId])
+  const handleSelectChinese = (cardId: string) => {
+    if (isLocked || matchedIds.has(cardId)) {
+      return
+    }
+    setSelectedChineseId(cardId)
+    if (selectedTargetId) {
+      resolveAttempt(cardId, selectedTargetId)
+    }
+  }
+
+  const handleSelectTarget = (cardId: string) => {
+    if (isLocked || matchedIds.has(cardId)) {
+      return
+    }
+    setSelectedTargetId(cardId)
+    if (selectedChineseId) {
+      resolveAttempt(selectedChineseId, cardId)
+    }
+  }
 
   const handleChangeMode = (nextMode: MatchingMode) => {
     if (nextMode === mode) {
@@ -135,7 +149,7 @@ export function MatchingGame({ cards, onBack }: Props) {
                   <button
                     key={card.id}
                     className={`matching-card ${isSelected ? 'is-selected' : ''} ${isMatched ? 'is-matched' : ''}`}
-                    onClick={() => setSelectedChineseId(card.id)}
+                    onClick={() => handleSelectChinese(card.id)}
                     disabled={isLocked || isMatched}
                     type="button"
                   >
@@ -153,7 +167,7 @@ export function MatchingGame({ cards, onBack }: Props) {
                   <button
                     key={card.id}
                     className={`matching-card ${isSelected ? 'is-selected' : ''} ${isMatched ? 'is-matched' : ''}`}
-                    onClick={() => setSelectedTargetId(card.id)}
+                    onClick={() => handleSelectTarget(card.id)}
                     disabled={isLocked || isMatched}
                     type="button"
                   >

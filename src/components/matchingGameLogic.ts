@@ -42,7 +42,7 @@ export function createMatchingRound(
   random: () => number = Math.random,
 ): MatchingRound {
   const shuffled = shuffle(cards, random)
-  const selected: MatchingRoundCard[] = []
+  const selected: Array<{ id: string; chinese: string; target: string }> = []
   const usedChinese = new Set<string>()
   const usedTargets = new Set<string>()
 
@@ -64,24 +64,19 @@ export function createMatchingRound(
 
     usedChinese.add(normalizedChinese)
     usedTargets.add(normalizedTarget)
-    selected.push({ id: card.id, text: chinese })
+    selected.push({ id: card.id, chinese, target })
 
     if (selected.length === maxPairs) {
       break
     }
   }
 
-  const targetPairs = selected.map((pair) => {
-    const match = cards.find((card) => card.id === pair.id)!
-    return {
-      id: pair.id,
-      text: mode === 'english' ? match.english : match.pinyin,
-    }
-  })
+  const chinesePairs = selected.map((pair) => ({ id: pair.id, text: pair.chinese }))
+  const targetPairs = selected.map((pair) => ({ id: pair.id, text: pair.target }))
 
   return {
-    pairs: selected,
-    chineseCards: shuffle(selected, random),
+    pairs: chinesePairs,
+    chineseCards: shuffle(chinesePairs, random),
     targetCards: shuffle(targetPairs, random),
   }
 }
