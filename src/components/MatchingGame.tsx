@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { FlashCard } from '../types/card'
+import { speakChinese } from '../utils/speech'
 import {
   createMatchingRound,
   evaluateMatchAttempt,
@@ -25,6 +26,10 @@ export function MatchingGame({ cards, onBack }: Props) {
   const [feedback, setFeedback] = useState<'correct' | 'incorrect' | null>(null)
   const [isLocked, setIsLocked] = useState(false)
 
+  const speakChineseCard = async (cardText: string) => {
+    await speakChinese(cardText)
+  }
+
   const resolveAttempt = (chineseId: string, targetId: string) => {
     const result = evaluateMatchAttempt(
       matchedIds,
@@ -48,14 +53,22 @@ export function MatchingGame({ cards, onBack }: Props) {
     }, 700)
   }
 
-  const handleSelectChinese = (cardId: string) => {
+  const handleSelectChinese = async (cardId: string) => {
     if (isLocked || matchedIds.has(cardId)) {
       return
     }
+
+    const card = round.chineseCards.find((candidate) => candidate.id === cardId)
+    if (!card) {
+      return
+    }
+
     setSelectedChineseId(cardId)
     if (selectedTargetId) {
       resolveAttempt(cardId, selectedTargetId)
     }
+
+    await speakChineseCard(card.text)
   }
 
   const handleSelectTarget = (cardId: string) => {
@@ -152,6 +165,7 @@ export function MatchingGame({ cards, onBack }: Props) {
                     onClick={() => handleSelectChinese(card.id)}
                     disabled={isLocked || isMatched}
                     type="button"
+                    aria-pressed={isSelected}
                   >
                     {card.text}
                   </button>
@@ -170,6 +184,7 @@ export function MatchingGame({ cards, onBack }: Props) {
                     onClick={() => handleSelectTarget(card.id)}
                     disabled={isLocked || isMatched}
                     type="button"
+                    aria-pressed={isSelected}
                   >
                     {card.text}
                   </button>
